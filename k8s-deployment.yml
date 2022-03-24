@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: skaffold-demo-image
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: skaffold-demo-image
+  template:
+    metadata:
+      labels:
+        app: skaffold-demo-image
+    spec:
+      containers:
+        - name: skaffold-demo-image
+          image: skaffold-demo-image
+          ports:
+            - containerPort: 8080
